@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright 2021 The Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,13 +21,13 @@ package fakeFilteredFactory
 import (
 	context "context"
 
+	externalversions "github.com/imjasonh/cluster-controller/pkg/client/informers/externalversions"
+	fake "github.com/imjasonh/cluster-controller/pkg/client/injection/client/fake"
+	filtered "github.com/imjasonh/cluster-controller/pkg/client/injection/informers/factory/filtered"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	controller "knative.dev/pkg/controller"
 	injection "knative.dev/pkg/injection"
 	logging "knative.dev/pkg/logging"
-	externalversions "knative.dev/sample-controller/pkg/client/informers/externalversions"
-	fake "knative.dev/sample-controller/pkg/client/injection/client/fake"
-	filtered "knative.dev/sample-controller/pkg/client/injection/informers/factory/filtered"
 )
 
 var Get = filtered.Get

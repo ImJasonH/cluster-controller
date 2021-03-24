@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright 2021 The Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,14 +19,14 @@ limitations under the License.
 package fake
 
 import (
+	clientset "github.com/imjasonh/cluster-controller/pkg/client/clientset/versioned"
+	clusterv1alpha1 "github.com/imjasonh/cluster-controller/pkg/client/clientset/versioned/typed/cluster/v1alpha1"
+	fakeclusterv1alpha1 "github.com/imjasonh/cluster-controller/pkg/client/clientset/versioned/typed/cluster/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
 	fakediscovery "k8s.io/client-go/discovery/fake"
 	"k8s.io/client-go/testing"
-	clientset "knative.dev/sample-controller/pkg/client/clientset/versioned"
-	samplesv1alpha1 "knative.dev/sample-controller/pkg/client/clientset/versioned/typed/samples/v1alpha1"
-	fakesamplesv1alpha1 "knative.dev/sample-controller/pkg/client/clientset/versioned/typed/samples/v1alpha1/fake"
 )
 
 // NewSimpleClientset returns a clientset that will respond with the provided objects.
@@ -76,7 +76,7 @@ func (c *Clientset) Tracker() testing.ObjectTracker {
 
 var _ clientset.Interface = &Clientset{}
 
-// SamplesV1alpha1 retrieves the SamplesV1alpha1Client
-func (c *Clientset) SamplesV1alpha1() samplesv1alpha1.SamplesV1alpha1Interface {
-	return &fakesamplesv1alpha1.FakeSamplesV1alpha1{Fake: &c.Fake}
+// ClusterV1alpha1 retrieves the ClusterV1alpha1Client
+func (c *Clientset) ClusterV1alpha1() clusterv1alpha1.ClusterV1alpha1Interface {
+	return &fakeclusterv1alpha1.FakeClusterV1alpha1{Fake: &c.Fake}
 }

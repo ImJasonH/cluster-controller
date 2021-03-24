@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright 2021 The Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,11 +21,11 @@ package factory
 import (
 	context "context"
 
+	externalversions "github.com/imjasonh/cluster-controller/pkg/client/informers/externalversions"
+	client "github.com/imjasonh/cluster-controller/pkg/client/injection/client"
 	controller "knative.dev/pkg/controller"
 	injection "knative.dev/pkg/injection"
 	logging "knative.dev/pkg/logging"
-	externalversions "knative.dev/sample-controller/pkg/client/informers/externalversions"
-	client "knative.dev/sample-controller/pkg/client/injection/client"
 )
 
 func init() {
@@ -50,7 +50,7 @@ func Get(ctx context.Context) externalversions.SharedInformerFactory {
 	untyped := ctx.Value(Key{})
 	if untyped == nil {
 		logging.FromContext(ctx).Panic(
-			"Unable to fetch knative.dev/sample-controller/pkg/client/informers/externalversions.SharedInformerFactory from context.")
+			"Unable to fetch github.com/imjasonh/cluster-controller/pkg/client/informers/externalversions.SharedInformerFactory from context.")
 	}
 	return untyped.(externalversions.SharedInformerFactory)
 }

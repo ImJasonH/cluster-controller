@@ -1,4 +1,4 @@
-# Copyright 2019 The Knative Authors
+# Copyright 2021 The Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-logging
-  namespace: knative-samples
+  namespace: cluster-controller
   labels:
-    samples.knative.dev/release: devel
+    cluster.example.dev/release: devel
 
 data:
   _example: |

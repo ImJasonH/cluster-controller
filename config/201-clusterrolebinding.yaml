@@ -1,4 +1,4 @@
-# Copyright 2019 The Knative Authors
+# Copyright 2021 The Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,14 +15,14 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: knative-samples-controller-admin
+  name: cluster-controller-controller-admin
   labels:
-    samples.knative.dev/release: devel
+    cluster.example.dev/release: devel
 subjects:
   - kind: ServiceAccount
     name: controller
-    namespace: knative-samples
+    namespace: cluster-controller
 roleRef:
   kind: ClusterRole
-  name: knative-samples-admin
+  name: cluster-controller-admin
   apiGroup: rbac.authorization.k8s.io
