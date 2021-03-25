@@ -28,6 +28,7 @@ import (
 // +genclient
 // +genreconciler
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+// +crd
 type Cluster struct {
 	metav1.TypeMeta `json:",inline"`
 	// +optional
@@ -53,8 +54,6 @@ var (
 
 // ClusterSpec holds the desired state of the Cluster (from the client).
 type ClusterSpec struct {
-	// ServiceName holds the name of the Kubernetes Service to expose as an "addressable".
-	ServiceName string `json:"serviceName"`
 }
 
 const (
