@@ -91,7 +91,7 @@ func main() {
 		gvr, _ := schema.ParseResourceArg(gvrstr)
 
 		if _, err := dsif.ForResource(*gvr).Lister().List(labels.Everything()); err != nil {
-			log.Println("Failed to list all %q: %v", gvrstr, err)
+			log.Printf("Failed to list all %q: %v", gvrstr, err)
 			continue
 		}
 
