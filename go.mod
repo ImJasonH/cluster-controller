@@ -16,5 +16,5 @@ require (
 	knative.dev/hack v0.0.0-20210317214554-58edbdc42966
 	knative.dev/pkg v0.0.0-20210318052054-dfeeb1817679
 	sigs.k8s.io/controller-runtime v0.8.3
-	sigs.k8s.io/controller-tools v0.5.0
+	sigs.k8s.io/controller-tools v0.5.0 // indirect
 )
