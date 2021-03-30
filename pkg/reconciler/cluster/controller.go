@@ -18,6 +18,7 @@ package cluster
 
 import (
 	"context"
+	"os"
 
 	"knative.dev/pkg/tracker"
 
@@ -35,6 +36,8 @@ func NewController(
 	cmw configmap.Watcher,
 ) *controller.Impl {
 	logger := logging.FromContext(ctx)
+
+	logger.Infof("I will install syncer image: %q", os.Getenv("SYNCER_IMAGE"))
 
 	clusterInformer := clusterinformer.Get(ctx)
 

@@ -181,7 +181,7 @@ func MainWithConfig(ctx context.Context, component string, cfg *rest.Config, cto
 	profilingHandler := profiling.NewHandler(logger, false)
 	profilingServer := profiling.NewServer(profilingHandler)
 
-	// CheckK8sClientMinimumVersionOrDie(ctx, logger)
+	CheckK8sClientMinimumVersionOrDie(ctx, logger)
 	cmw := SetupConfigMapWatchOrDie(ctx, logger)
 
 	// Set up leader election config

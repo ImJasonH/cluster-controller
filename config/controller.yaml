@@ -68,6 +68,8 @@ spec:
           value: config-observability
         - name: METRICS_DOMAIN
           value: example.dev/cluster
+        - name: SYNCER_IMAGE
+          value: ko://github.com/imjasonh/cluster-controller/cmd/syncer
 
         securityContext:
           allowPrivilegeEscalation: false
